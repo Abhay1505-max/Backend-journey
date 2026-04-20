@@ -1,1 +1,48 @@
+**Data types**
+                      🔹 1. Primitive Data Types (basic values)
+                         These are immutable (cannot be changed directly)
+1. Number
+let age = 21;
+let price = 99.99;
+👉 Used for integers + decimals
 
+2. String
+let name = "Abhay";
+👉 Text data
+
+3. Boolean
+let isLoggedIn = true;
+👉 Only true or false
+
+4. Undefined
+let x;
+console.log(x); // undefined
+👉 Variable declared but not assigned
+
+5. Null
+let data = null;
+👉 Intentional empty value
+
+6. BigInt
+let big = 12345678901234567890n;
+👉 For very large numbers
+
+7. Symbol
+let id = Symbol("id");
+👉 Unique identifiers (advanced use)
+
+                               🔸 2. Non-Primitive (Reference Types)
+                                  These store reference (memory address)
+
+✅ Types:
+1. Object
+let user = {
+  name: "Abhay",
+  age: 21
+};
+2. Array
+let arr = [1, 2, 3, 4];
+3. Function
+function greet() {
+  console.log("Hello");
+}
