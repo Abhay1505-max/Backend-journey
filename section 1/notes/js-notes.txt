@@ -45,4 +45,452 @@ let arr = [1, 2, 3, 4];
 3. Function
 function greet() {
   console.log("Hello");
+}            
+                                    Variable and constant
+                                   
+                                🔹 1. Variables in JavaScript
+
+A variable is a container whose value can change during program execution.
+
+Ways to declare variables:
+var (old way)
+let (modern, recommended)
+Example:
+let age = 20;
+age = 25;  // value changed
+console.log(age); // 25
+Key points:
+let allows re-assignment ✅
+Block scoped (works inside {} only)
+Preferred over var
+                                🔹 2. Constants in JavaScript
+
+A constant is a container whose value cannot be reassigned after initialization.
+
+Declared using:
+const
+Example:
+const pi = 3.14;
+pi = 3.14159; // ❌ Error: Assignment to constant variable
+Key points:
+Must be initialized at declaration
+Cannot be reassigned ❌
+Block scoped like let
+                                🔹 Important Concept (Tricky Part ⚠️)
+
+Even though const cannot be reassigned, objects/arrays can still be modified.
+
+const arr = [1, 2, 3];
+arr.push(4);   // ✅ allowed
+
+arr = [5, 6];  // ❌ not allowed
+
+                                       🔹 Types of Operators in JavaScript
+1. Arithmetic Operators
+
+Used for mathematical calculations.
+
+let a = 10, b = 5;
+
+console.log(a + b); // 15
+console.log(a - b); // 5
+console.log(a * b); // 50
+console.log(a / b); // 2
+console.log(a % b); // 0 (remainder)
+console.log(a ** b); // 100000 (10^5)
+2. Assignment Operators
+
+Used to assign values to variables.
+
+let x = 10;
+
+x += 5;  // x = x + 5 → 15
+x -= 3;  // 12
+x *= 2;  // 24
+x /= 4;  // 6
+3. Comparison Operators
+
+Used to compare values → returns true/false
+
+console.log(5 == "5");   // true  (only value)
+console.log(5 === "5");  // false (value + type)
+
+console.log(10 != 5);    // true
+console.log(10 > 5);     // true
+console.log(10 < 5);     // false
+console.log(10 >= 10);   // true
+
+👉 Important for interviews:
+
+== → loose equality (type conversion happens)
+=== → strict equality (no conversion) ✅ preferred
+4. Logical Operators
+
+Used to combine conditions.
+
+let age = 20;
+
+console.log(age > 18 && age < 25); // true (AND)
+console.log(age > 18 || age < 10); // true (OR)
+console.log(!(age > 18));          // false (NOT)
+5. Increment / Decrement Operators
+let i = 5;
+
+console.log(i++); // 5 (post-increment)
+console.log(++i); // 7 (pre-increment)
+
+👉 Difference:
+
+i++ → use first, then increase
+++i → increase first, then use
+6. String Operators
+let first = "Hello";
+let second = "World";
+
+console.log(first + " " + second); // Hello World
+7. Ternary Operator (Shortcut for if-else)
+let age = 18;
+
+let result = (age >= 18) ? "Adult" : "Minor";
+console.log(result);
+8. Type Operator
+console.log(typeof 10);       // number
+console.log(typeof "hello");  // string
+
+
+ 
+                       Conditional
+
+conditional statements are used to make decisions in your code (i.e., run different code based on conditions).
+
+🔹 1. if Statement
+
+Runs code only if condition is true
+
+let age = 18;
+
+if (age >= 18) {
+  console.log("You can vote");
 }
+
+🔹 2. if...else
+
+Runs one block if true, another if false
+
+let age = 16;
+
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Minor");
+}
+
+🔹 3. if...else if...else
+
+Used for multiple conditions
+
+let marks = 75;
+
+if (marks >= 90) {
+  console.log("A grade");
+} else if (marks >= 70) {
+  console.log("B grade");
+} else {
+  console.log("C grade");
+}
+
+🔹 4. Ternary Operator (Short form)
+
+One-line if-else
+
+let age = 20;
+
+let result = (age >= 18) ? "Adult" : "Minor";
+console.log(result);
+
+👉 Use when logic is simple
+
+🔹 5. switch Statement
+
+Used when checking multiple exact values
+
+let day = 2;
+
+switch(day) {
+  case 1:
+    console.log("Monday");
+    break;
+  case 2:
+    console.log("Tuesday");
+    break;
+  default:
+    console.log("Invalid day");
+}
+🔥 Important Concepts (Interview Focus)
+✅ Truthy & Falsy Values
+
+Falsy values:
+
+false, 0, "", null, undefined, NaN
+
+Example:
+
+if (0) {
+  console.log("Run");
+} else {
+  console.log("Not Run"); // this will execute
+}
+✅ Nested Conditions
+let age = 20;
+let hasID = true;
+
+if (age >= 18) {
+  if (hasID) {
+    console.log("Allowed");
+  }
+}
+
+
+
+                           Arrays
+   An array is a data structure used to store multiple values in a single variable.
+🔹 What is an Array?
+let arr = [10, 20, 30, 40];
+
+👉 Stores multiple values (numbers, strings, objects, etc.)
+
+🔹 Accessing Elements
+console.log(arr[0]); // 10
+console.log(arr[2]); // 30
+
+👉 Index starts from 0
+
+🔹 Most Common Array Methods (Very Important 🚀)
+1. push() → Add at end
+arr.push(50);
+// [10, 20, 30, 40, 50]
+2. pop() → Remove from end
+arr.pop();
+// [10, 20, 30]
+3. shift() → Remove from start
+arr.shift();
+// removes first element
+4. unshift() → Add at start
+arr.unshift(5);
+// adds at beginning
+5. length → Size of array
+console.log(arr.length);
+6. map() → Transform array
+let nums = [1, 2, 3];
+
+let result = nums.map(x => x * 2);
+// [2, 4, 6]
+
+👉 Returns new array
+
+7. filter() → Select elements
+let nums = [1, 2, 3, 4];
+
+let even = nums.filter(x => x % 2 === 0);
+// [2, 4]
+8. reduce() → Accumulate value
+let nums = [1, 2, 3, 4];
+
+let sum = nums.reduce((acc, curr) => acc + curr, 0);
+// 10
+9. forEach() → Loop through array
+arr.forEach(x => console.log(x));
+
+👉 Does not return anything
+
+10. includes() → Check value
+arr.includes(20); // true
+11. indexOf() → Find index
+arr.indexOf(30); // 2
+12. slice() → Copy part of array
+arr.slice(1, 3); // [20, 30]
+13. splice() → Add/remove elements
+arr.splice(1, 2);
+// removes elements
+
+
+🔥 Most Important for Interviews
+
+map()
+filter()
+reduce()
+push(), pop()
+slice() vs splice()
+
+🔹 Pro Tip 💡
+Use map() when you want new transformed array
+Use filter() when you want some elements
+Use reduce() for sum, product, etc.
+
+                            Loop
+Loops are used to execute a block of code multiple times until a condition is met.
+
+🔹 1. for Loop (Most Common 🚀)
+Used when you know how many times to run.
+
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+👉 Output: 0 1 2 3 4
+
+🔹 2. while Loop
+Runs while condition is true
+let i = 0;
+while (i < 5) {
+  console.log(i);
+  i++;
+}
+
+🔹 3. do...while Loop
+Runs at least once, then checks condition
+
+let i = 0;
+
+do {
+  console.log(i);
+  i++;
+} while (i < 5);
+
+
+🔹 4. for...of Loop (Arrays)
+Used to iterate values
+
+let arr = [10, 20, 30];
+
+for (let value of arr) {
+  console.log(value);
+}
+
+🔹 5. for...in Loop (Objects)
+Used to iterate keys
+
+let obj = { name: "Abhay", age: 21 };
+
+for (let key in obj) {
+  console.log(key, obj[key]);
+}
+
+🔹 6. forEach() (Array Method)
+let arr = [1, 2, 3];
+
+arr.forEach(x => console.log(x));
+
+👉 Cleaner syntax, but:
+❌ No break / continue
+
+🔥 Important Concepts (Interview Focus)
+✅ break (Stop loop)
+for (let i = 0; i < 5; i++) {
+  if (i === 3) break;
+  console.log(i);
+}
+
+✅ continue (Skip iteration)
+for (let i = 0; i < 5; i++) {
+  if (i === 2) continue;
+  console.log(i);
+}
+
+🔹 Pro Tips 💡
+Use for for DSA problems
+Use for...of for arrays (clean)
+Avoid for...in for arrays ❌
+Use forEach() for readability
+
+                             Function
+🔹 1. Functions in JavaScript
+A function is a reusable block of code.
+
+✅ Function Declaration
+function greet(name) {
+  return "Hello " + name;
+}
+console.log(greet("Abhay"));
+✅ Function Expression
+const greet = function(name) {
+  return "Hello " + name;
+};
+
+🔹 2. Arrow Functions (ES6)
+Shorter syntax for writing functions.
+
+const greet = (name) => {
+  return "Hello " + name;
+};
+
+👉 Short form:
+
+const greet = name => "Hello " + name;
+🔥 Function vs Arrow Function (Important)
+Feature	Normal Function	Arrow Function
+Syntax	Longer	Shorter
+this	Dynamic	Lexical (fixed)
+arguments object	Available	Not available
+Constructor	Yes	No
+🔹 3. this Keyword (Core Concept 🚀)
+
+👉 this refers to the object that is calling the function
+
+✅ Case 1: Inside Object Method
+const user = {
+  name: "Abhay",
+  greet: function() {
+    console.log(this.name);
+  }
+};
+
+user.greet(); // Abhay
+
+👉 this → refers to user
+
+❌ Case 2: Arrow Function in Object
+const user = {
+  name: "Abhay",
+  greet: () => {
+    console.log(this.name);
+  }
+};
+
+user.greet(); // undefined ❌
+
+👉 Arrow function does NOT have its own this
+
+🔹 Lexical this (Arrow Function)
+
+Arrow functions inherit this from parent scope
+
+function outer() {
+  let name = "Abhay";
+
+  const inner = () => {
+    console.log(this.name);
+  };
+
+  inner();
+}
+
+👉 this comes from outer scope
+
+🔹 Global Context
+console.log(this);
+In browser → window
+In Node.js → {} (module)
+🔥 Interview Trick ⚠️
+const obj = {
+  value: 10,
+  normal: function() {
+    console.log(this.value);
+  },
+  arrow: () => {
+    console.log(this.value);
+  }
+};
+
+obj.normal(); // 10 ✅
+obj.arrow();  // undefined ❌
+
